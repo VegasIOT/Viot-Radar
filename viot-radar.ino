@@ -452,7 +452,7 @@ void loop() {
     WiFi.mode(WIFI_OFF);
     Serial.println("wifi off");
 
-    delay(60000);
+    delay(10000); // needs to rest or get caught in a loop
 
     Serial.println("reading value");
     
