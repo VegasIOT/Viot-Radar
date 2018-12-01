@@ -23,6 +23,8 @@
   UPDATE 23 MAY 2017 - The MQTT_MAX_PACKET_SIZE parameter may not be setting appropriately do to a bug in the PubSub library. If the MQTT messages are not being transmitted as expected please you may need to change the MQTT_MAX_PACKET_SIZE parameter in "PubSubClient.h" directly.
   
   Update VIOT 8-7-18 turned into Radar rcwl-0516 sensor - attach the radar to Vin on NodeMCU to get enough voltage else problems.  
+  
+  Update VIOT 12-1-18 added client.disconnect(); .... also make sure your pubsubclient.h MQTT_KEEPALIVE is set to 60 instead of 15.
 */
 
 
@@ -449,6 +451,7 @@ void loop() {
     float newHumValue = dht.readHumidity();
 
     //PIR CODE
+    client.disconnect();
     WiFi.mode(WIFI_OFF);
     Serial.println("wifi off");
 
